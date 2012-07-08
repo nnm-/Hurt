@@ -6,21 +6,21 @@ Hurt::Application.routes.draw do
   #get "pages/contact"
 
   #get "pages/about"
-	
-	match '/about', :to => 'pages#about'
-	#match '/home', :to => 'pages#home'
-	match '/contact', :to => 'pages#contact'
+  
+  match '/about', :to => 'pages#about'
+  #match '/home', :to => 'pages#home'
+  match '/contact', :to => 'pages#contact'
 
   resources :posts#, :only => [:create, :destroy]
 
   get "blog/index"
-	
+  
   ##devise_for :users
-	devise_for :users, :path_prefix => 'd'
-	resources :users
-	
-	match '*path', :controller => 'redirect', :action => 'index'
-	
+  devise_for :users, :path_prefix => 'd'
+  resources :users
+  
+  match '*path', :controller => 'redirect', :action => 'index'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

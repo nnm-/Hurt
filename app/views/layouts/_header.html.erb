@@ -1,28 +1,28 @@
 <header id="page_header"> 
-	<div class="navbar navbar-fixed-top">
-		<div class="navbar-inner">
-			<div class="container">
-				<a class="brand">Super blog</a>
-				<% if user_signed_in? %> 
-					<ul class="nav">
-						<li><%= link_to current_user.username, current_user %></a></li>
-						<li><%= link_to "Settings", edit_user_registration_path %></li>
-						<li><%= link_to "Users", users_path %></li>
-						<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-					</ul>
-				<% else %> 
-					<ul class="nav">
-						<li><%= link_to "Sign up", new_user_registration_path %></li>
-						<li><%= link_to "Sign in", new_user_session_path %></li>
-					</ul>
-				<% end %>
-								
-				<ul class="nav pull-right">
-					<li><%= link_to "Home", home_path %></li>
-					<li><a>Help</a></li>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand">Super blog</a>
+        <% if user_signed_in? %> 
+          <ul class="nav">
+            <li><%= link_to current_user.username, current_user %></a></li>
+            <li><%= link_to "Settings", edit_user_registration_path %></li>
+            <li><%= link_to "Users", users_path %></li>
+            <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+          </ul>
+        <% else %> 
+          <ul class="nav">
+            <li><%= link_to "Sign up", new_user_registration_path %></li>
+            <li><%= link_to "Sign in", new_user_session_path %></li>
+          </ul>
+        <% end %>
+                
+        <ul class="nav pull-right">
+          <li><%= link_to "Home", home_path %></li>
+          <li><a>Help</a></li>
 
-				</ul>
-			</div>
-		</div>
-	</div>
+        </ul>
+      </div>
+    </div>
+  </div>
 </header>
