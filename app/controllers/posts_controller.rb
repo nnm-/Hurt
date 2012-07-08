@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-	before_filter :authenticate_user!, :only => [:create, :destroy]
+  before_filter :authenticate_user!, :only => [:create, :destroy]
 
   # GET /posts
   # GET /posts.json
@@ -42,15 +42,15 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-		#user = User.find(params)
+    #user = User.find(params)
     @post = current_user.posts.build(params[:post])
 
-		logger.debug "New post: #{@post.attributes.inspect}"
-		logger.debug "QQQQQQQQQQQQQQQQQQQQQQQQ #{params}"
-		
+    logger.debug "New post: #{@post.attributes.inspect}"
+    logger.debug "QQQQQQQQQQQQQQQQQQQQQQQQ #{params}"
+    
     respond_to do |format|
       if @post.save
-				logger.debug "New post: #{@post.attributes.inspect}"
+        logger.debug "New post: #{@post.attributes.inspect}"
         format.html { redirect_to current_user, notice: 'Post was successfully created.' }
         format.json { render json: @post, status: :created, location: @post }
       else
