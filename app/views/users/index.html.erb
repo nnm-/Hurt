@@ -1,0 +1,30 @@
+<h1>Listing users</h1>
+
+<table style="margin-bottom: 18px">
+  <tr>
+    <th>Name</th>
+		<th>Id</th>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.username %></td>
+		<td><%= user.id %></td>
+    <td><%= user.email %></td>
+    
+		<td><%= link_to 'Show', user %></td>
+    <!--
+		<td><%= link_to 'Edit', edit_user_path(user) %></td>
+		-->
+		<% if current_user.admin? %>
+			<td><%= link_to 'Delete', user, :confirm => 'Are you sure?', :method => :delete %></td>
+		<% end %>
+  </tr>
+<% end %>
+</table>
+
+

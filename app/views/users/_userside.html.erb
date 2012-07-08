@@ -1,0 +1,5 @@
+<%= tabs_tag :open_tabs => { :class => "nav nav-tabs nav-stacked" } do |tab| %>
+	<%= tab.posts 'Posts', user_path %>
+	<%= tab.friends 'Friends', '#' %>
+	<%= tab.news 'News', '#' %>
+<% end %>

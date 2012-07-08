@@ -1,0 +1,38 @@
+<div id="profile">
+	
+	<div class="page-header">
+		<h1 align="center">Show user title</h1>
+	</div>	
+
+	<div class="row-fluid">
+		<div class="span3" id="sidebar">
+			<div class="well">
+				<h2><%= @user.username %> sidebar</h2>
+				<strong>Posts:</strong> <%= @user.posts.count %>
+			</div>
+			
+			<div>
+				<%= render "userside"%>
+			</div>
+		</div>
+	
+		<div class="span9" id="main">
+			<div class="content ">
+				<!--<h1 align="center"><%= @user.username %> main</h1>-->
+				
+				<% if user_signed_in? %>
+					<%= render 'posts/form' %>
+				<% end %>	
+				
+				<% unless @user.posts.empty? %>
+					<div class="posts">
+						<%= render @posts %>
+					</div>
+				<% end %>	
+				
+			</div>	
+		</div>
+	</div>
+</div>	
+
+
