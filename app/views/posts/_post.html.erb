@@ -5,7 +5,7 @@
         <p><%= time_ago_in_words(post.created_at) %> ago</p>
       </div>
       <div>
-        <p>posted by <strong><%= post.user.username %></strong></p>
+        <p>posted by <strong><%# post.user.username %></strong></p>
       </div>
     </div>
     
@@ -15,10 +15,10 @@
     
     <div class="footer">
       <div class="links" style="float:left">
-          <% if current_user == @user %>
+          <%# if current_user == @user %>
             <a><%= link_to 'edit', edit_post_path(post) %></a>
             <a><%= link_to 'delete', post, confirm: 'Are you sure?', method: :delete %></a>
-          <% end %>
+          <%# end %>
 
       </div>
       <div style="float:right">

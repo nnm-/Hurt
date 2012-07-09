@@ -2,22 +2,13 @@ Hurt::Application.routes.draw do
   get "redirect/index"
 
   get "pages/home"
-
-  #get "pages/contact"
-
-  #get "pages/about"
+	
+	get "blog/index"
   
   match '/about', :to => 'pages#about'
-  #match '/home', :to => 'pages#home'
   match '/contact', :to => 'pages#contact'
 
   resources :posts#, :only => [:create, :destroy]
-
-  get "blog/index"
-  
-  ##devise_for :users
-  devise_for :users, :path_prefix => 'd'
-  resources :users
   
   match '*path', :controller => 'redirect', :action => 'index'
   
