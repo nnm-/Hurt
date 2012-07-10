@@ -10,6 +10,7 @@ Hurt::Application.routes.draw do
 
   resources :users
   resources :sessions
+  resources :posts
   
   match "logout" => "sessions#destroy", :as => "logout"
   match "login" => "sessions#new", :as => "login"

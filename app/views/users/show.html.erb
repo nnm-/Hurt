@@ -20,7 +20,7 @@
       <div class="content ">
         <!--<h1 align="center"><%= @user.username %> main</h1>-->
         
-        <% if user_signed_in? %>
+        <% if current_user %>
           <%= render 'posts/form' %>
         <% end %>	
         

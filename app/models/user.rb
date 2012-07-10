@@ -12,5 +12,7 @@ class User < ActiveRecord::Base
   
   validates :password, length: { within: 6..40 }
   validates :email, format: { with: email_regex }
+
+  has_many :posts, dependent: :destroy
   
 end

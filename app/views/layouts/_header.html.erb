@@ -5,9 +5,9 @@
         <a class="brand">Super blog</a>
         <% if current_user %> 
           <ul class="nav">
-            <li><%= link_to "User", '#' %></a></li>
+            <li><%= link_to current_user.username, '#' %></a></li>
             <li><%= link_to "Settings", '#' %></li>
-            <li><%= link_to "Users", '#'%></li>
+            <li><%= link_to "Users", users_path %></li>
             <li><%= link_to "Sign out", logout_path %></li>
           </ul>
         <% else %> 
