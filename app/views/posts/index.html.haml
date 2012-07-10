@@ -1,0 +1,26 @@
+%h1
+  Listing posts
+
+%table
+  %tr
+    %th
+      Message
+    %th
+      User id
+    %th
+    %th
+    %th  
+
+  - @posts.each do |post|
+    %tr
+      %td= truncate(post.message, length: 80)
+      %td= post.user_id
+      %td= link_to 'Show', post
+      %td= link_to 'Edit', edit_post_path(post)
+      %td= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete
+
+%br/
+
+= link_to 'New Post', new_post_path
+
+

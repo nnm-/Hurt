@@ -1,0 +1,23 @@
+%div.post-item.well{style: "padding: 5px"}
+  %div.content{style: "padding: 9px 12px"}
+    %div.header
+      %div.time{style: "float: right"}
+        %p= time_ago_in_words(post.created_at)
+      %div
+        %p
+          posted by
+          %strong= post.user.username
+
+    %div.message{style: "display:block"}
+      %p{style: "word-wrap: break-word"}
+        = post.message
+    
+    %div.footer
+      %div{style: "float:left"}
+        - if current_user == @user
+          %a= link_to 'edit', edit_post_path(post)
+          %a= link_to 'delete', post, confirm: 'Are you sure?', method: :delete
+
+      %div{style: "float:right"}
+        %a comments
+      %br/
