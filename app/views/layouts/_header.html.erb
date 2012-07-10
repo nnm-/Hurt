@@ -3,23 +3,23 @@
     <div class="navbar-inner">
       <div class="container">
         <a class="brand">Super blog</a>
-        <% if false %> 
+        <% if current_user %> 
           <ul class="nav">
-            <li><%= link_to "User", "#" %></a></li>
+            <li><%= link_to "User", '#' %></a></li>
             <li><%= link_to "Settings", '#' %></li>
-            <li><%= link_to "Users",'#'%></li>
-            <li><%= link_to "Sign out",'#'%></li>
+            <li><%= link_to "Users", '#'%></li>
+            <li><%= link_to "Sign out", logout_path %></li>
           </ul>
         <% else %> 
           <ul class="nav">
-            <li><%= link_to "Sign up", '#'%></li>
-            <li><%= link_to "Sign in", '#'%></li>
+            <li><%= link_to "Sign up", signup_path %></li>
+            <li><%= link_to "Sign in", login_path %></li>
           </ul>
         <% end %>
                 
         <ul class="nav pull-right">
           <li><%= link_to "Home", home_path %></li>
-          <li><a>Help</a></li>
+          <li><%= link_to "Secret", secret_path %></li>
 
         </ul>
       </div>

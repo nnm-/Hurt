@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  before_filter :require_login, :only => :secret
+
   def home
   end
 
@@ -7,4 +9,8 @@ class PagesController < ApplicationController
 
   def about
   end
+  
+  def secret
+  end
+  
 end

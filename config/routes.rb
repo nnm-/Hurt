@@ -1,16 +1,21 @@
 Hurt::Application.routes.draw do
-  get "redirect/index"
+  root :to => 'pages#home', as: 'home'
 
+  get "redirect/index"
   get "pages/home"
-	
-	get "blog/index"
   
   match '/about', :to => 'pages#about'
   match '/contact', :to => 'pages#contact'
+  match '/secret', :to => 'pages#secret'
 
-  resources :posts#, :only => [:create, :destroy]
+  resources :users
+  resources :sessions
   
-  match '*path', :controller => 'redirect', :action => 'index'
+  match "logout" => "sessions#destroy", :as => "logout"
+  match "login" => "sessions#new", :as => "login"
+  match "signup" => "users#new", :as => "signup"
+  
+  #match '*path', :controller => 'redirect', :action => 'index'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -61,7 +66,7 @@ Hurt::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'pages#home', as: 'home'
+  # root :to => 'pages#home', as: 'home'
 
   # See how all your routes lay out with "rake routes"
 

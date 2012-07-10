@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  protected
+  private
+    def not_authenticated
+      redirect_to login_url, :notice => "First log in to view this page."
+    end
    
 end
