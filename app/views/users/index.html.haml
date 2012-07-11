@@ -1,0 +1,21 @@
+%h1 Listing users
+
+%table{style: "margin-bottom: 18px"}
+  %tr
+    %th Name
+    %th Id
+    %th Email
+    %th 
+    %th 
+    %th 
+
+  - @users.each do |user|
+    %tr
+      %td= user.username
+      %td= user.id
+      %td= user.email
+      
+      %td= link_to 'Show', user
+      / %td<%= link_to 'Edit', edit_user_path(user)
+      - if current_user.admin?
+        %td= link_to 'Delete', user, :confirm => 'Are you sure?', :method => :delete

@@ -1,0 +1,23 @@
+#profile
+  
+  .page-header
+    %h1{align: "center"} Show user title
+
+  .row-fluid
+    .span3#sidebar
+      .well
+        %h2
+          = @user.username
+          sidebar
+        %strong
+          Posts:
+        = @user.posts.count
+    
+      %div= render "userside"
+      
+    .span9#main
+      .content
+        - if current_user
+          = render 'posts/form'
+        - unless @user.posts.empty?
+          .posts= render @posts

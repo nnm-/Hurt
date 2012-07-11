@@ -1,0 +1,35 @@
+﻿!!! 5
+%html
+%head
+  %title= title
+  /= stylesheet_link_tag "application", :media => "all"
+  = stylesheet_link_tag "bootstrap/css/bootstrap", :media => "all"
+  = stylesheet_link_tag "bootstrap/css/bootstrap-responsive", :media => "all"
+  = javascript_include_tag "application"
+  = csrf_meta_tags
+
+%body{style: "padding-top: 100px"}
+
+  = render 'layouts/header'
+    
+  .container{style: "width: 70%"}
+    - unless flash.empty?
+      .alert.alert-header
+        <button class="close" data-dismiss="alert">
+        &times;
+        </button>
+        - flash.each do |key, value|
+          %strong= value
+
+    .content{style: "margin-bottom: 18px"}
+      = yield
+
+    .footer
+      = debug(params) if Rails.env.development?
+      = session
+      %br/
+      CurUser nil?:
+      = current_user.nil?
+      %br/
+      Login?:
+      = logged_in? 
